@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="cabecalho_pagina">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+	
+	<div align="center" class="container" >
+		<h1>Cadastro Realizado Com Sucesso!!</h1>
+		<p  style="font-size: xx-large;">Musicas:  </p><span th:text="${musicas.titulo}"><a>-</a></span>
+		<!-- <span th:text="${musicas.autor_letra}"> - </span>
+		<span th:text="${musicas.autor_musica}"> - </span>
+		<span th:text="${musicas.interprete}"> - </span>
+		<span th:text="${musicas.qtde}"> - </span> -->
+		
+		<p style="font-size: xx-large;">Pessoa Responsavel:  </p><span th:text="${pessoas.nome}"><a>-</a></span>
+		<!-- <span th:text="${pessoas.cpf}"> - </span>
+		<span th:text="${pessoas.rg}"> - </span>
+		<span th:text="${pessoas.endereco}"> - </span>
+		<span th:text="${pessoas.bairro}"> - </span>
+		<span th:text="${pessoas.cep}"> - </span>
+		<span th:text="${pessoas.cidade}"> - </span>
+		<span th:text="${pessoas.estado}"> - </span>
+		<span th:text="${pessoas.fone}"> - </span>
+		<span th:text="${pessoas.email}"> - </span>
+		<span th:text="${pessoas.banda}"> - </span>
+		<span th:text="${pessoas.acompanhante}"> - </span> -->
+		<span th:text="${pessoas.termo}"></span> 
+	</div>
+	<div align="center" class="container">
+		<br><a th:href="@{/cadastro}">Voltar</a>
+	</div>
+	
+	
+	<div class="fixed-bottom">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+</body>
+</html>

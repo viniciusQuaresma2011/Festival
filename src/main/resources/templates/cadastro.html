@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="cabecalho_pagina">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Cadastro</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+	label{
+		font-size: larger; 
+		font-family: Arial, Helvetica, sans-serif;
+	}
+</style>
+
+<body>
+	<div class="container">
+		<div th:replace="fragments :: menu"></div>
+	</div>
+
+
+	<div class="container" align="center">
+
+		<h1 align="center" style="font-size: xx-large;">Pagina de Cadastro</h1>
+
+		<form class="w-50" th:object="${musicas}" method="post" th:action="@{/cadastro}">
+			<div class="form-group">
+				<h1 style="font-size: xx-large;">Musica 01</h1>
+				<label for="exampleFormControlInput1" style="font-size: larger; font-family: Arial, Helvetica, sans-serif;">Titulo </label> <input name="titulo" th:field="*{titulo}"
+					type="text" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+					placeholder="titulo" required>
+
+				<label for="exampleFormControlInput1">Autor Da Letra </label> <input name="autor_letra"
+					th:field="*{autor_letra}" type="text" class="form-control" th:errorclass="is-invalid"
+					id="exampleFormControlInput1" placeholder="autor da letra" required>
+
+				<label for="exampleFormControlInput1">Autor Da Musica </label> <input name="autor_musica"
+					th:field="*{autor_musica}" type="text" class="form-control" th:errorclass="is-invalid"
+					id="exampleFormControlInput1" placeholder="autor da musica" required>
+
+				<label for="exampleFormControlInput1">Interprete </label> <input name="interprete"
+					th:field="*{interprete}" type="text" class="form-control" th:errorclass="is-invalid"
+					id="exampleFormControlInput1" placeholder="interprete" required>
+
+
+				<label for="sel1">N&deg; de Musicos Acompanhantes </label> <input th:field="*{numero_quantidade_acompanhantes}" type="number"
+					name="numero_quantidade_acompanhantes" min="1" max="99" value="0" required>
+
+			</div>
+
+
+			<div class="form-group">
+				<h1 style="font-size: xx-large;">Musica 02</h1>
+				<label for="exampleFormControlInput1">Titulo </label> <input name="titulo" th:field="*{titulo}"
+					type="text" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+					placeholder="titulo" required>
+
+				<label for="exampleFormControlInput1">Autor Da Letra </label> <input name="autor_letra"
+					th:field="*{autor_letra}" type="text" class="form-control" th:errorclass="is-invalid"
+					id="exampleFormControlInput1" placeholder="autor da letra" required>
+
+				<label for="exampleFormControlInput1">Autor Da Musica </label> <input name="autor_musica"
+					th:field="*{autor_musica}" type="text" class="form-control" th:errorclass="is-invalid"
+					id="exampleFormControlInput1" placeholder="autor da musica" required>
+
+				<label for="exampleFormControlInput1">Interprete </label> <input name="interprete"
+					th:field="*{interprete}" type="text" class="form-control" th:errorclass="is-invalid"
+					id="exampleFormControlInput1" placeholder="interprete" required>
+
+
+				<label for="sel1">N&deg; de Musicos Acompanhantes </label> <input th:field="*{numero_quantidade_acompanhantes}" type="number"
+					name="numero_quantidade_acompanhantes" min="1" max="99" value="0" required>
+
+
+
+			</div>
+			<div class="container table-responsive">
+				<h2>Pequena Biografia Art&iacute;stica</h2>
+				<textarea name="biografia" th:field="*{biografia}" th:object="${musicas}" minlength="10" maxlength="200"
+					rows="3" style="width: 540px; resize: none; margin-left: -10px;" required>
+
+				</textarea>
+			</div>
+			<form class="form" th:object="${pessoas}" method="post" th:action="@{/cadastro}">
+				<div class="form-group" id="posicao_div_1">
+
+					<label for="exampleFormControlInput1">Nome </label> <input name="nome" th:field="*{nome}"
+						type="text" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+						placeholder="nome" required>
+
+					<label for="exampleFormControlInput1">CPF </label> <input name="cpf" th:field="*{cpf}" type="text"
+						class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1" placeholder="cpf"
+						required onkeypress="$(this).mask('000.000.000-00');">
+
+					<label for="exampleFormControlInput1">Endereco</label> <input name="endereco" th:field="*{endereco}"
+						type="adress" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+						placeholder="endereco" required>
+
+
+					<label for="exampleFormControlInput1">Bairro</label> <input name="bairro" th:field="*{bairro}"
+						type="text" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+						placeholder="bairro" required>
+
+					<label for="exampleFormControlInput1">Cidade</label> <input name="cidade" th:field="*{cidade}"
+						type="text" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+						placeholder="cidade" required>
+
+					<label for="exampleFormControlInput1">Fone</label> <input name="fone" th:field="*{fone}" type="text"
+						class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1" placeholder="fone"
+						required onkeypress="$(this).mask('(00) 0000-00009')">
+
+					
+
+				</div>
+				<div class="row-150" id="posicao_div_2">
+					<label for="exampleFormControlInput1">RG</label> <input name="rg" th:field="*{rg}" type="text"
+						class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1" placeholder="rg"
+						required onkeypress="$(this).mask('0.000-000')">
+
+
+					<label for="exampleFormControlInput1">CEP</label> <input name="cep" th:field="*{cep}" type="text"
+						class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1" placeholder="cep"
+						required onkeypress="$(this).mask('00.000-000')">
+
+					<label for="exampleFormControlInput1">Estado</label> <input name="estado" th:field="*{estado}"
+						type="text" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+						placeholder="estado" required>
+
+					<label for="exampleFormControlInput1">Email</label> <input name="email" th:field="*{email}"
+						type="email" class="form-control" th:errorclass="is-invalid" id="exampleFormControlInput1"
+						placeholder="email" required>
+
+					<label for="exampleFormControlSelect1" style="padding: 10px;">Com Banda Do Festival</label> <select th:field="*{banda}"
+						name="banda" class="form-control" id="exampleFormControlSelect1" required>
+						<option disabled selected value="Selecione"></option>
+						<option th:each="p : ${opcaoBanda}" th:value="${p}" th:text="${p}"></option>
+					</select>
+					
+					<label for="exampleFormControlSelect1" style="padding: 10px;">Com Acompanhante Proprio</label> <select
+						th:field="*{acompanhante}" name="acompanhante" class="form-control"
+						id="exampleFormControlSelect1" required>
+						<option disabled selected value="Selecione"></option>
+						<option th:each="p : ${opcaoAcompanhante}" th:value="${p}" th:text="${p}"></option>
+					</select>
+				</div>
+				<p style="padding: 20px;"><b>
+					OBS.: Caso opte pela Banda do Festival, enviar partitura completa ou a cifragem da m&uacute;sica, contendo tamb&eacute;m
+					o ritmo e o compasso.</b>
+				</p>
+				<div class="form-check" style="padding: 20px;">
+					<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="termo" th:field="*{termo_de_responsabilidade}">
+					<label class="form-check-label" for="flexCheckDefault" >
+						<h6 style="font-size: large; font-family: Arial, Helvetica, sans-serif;"><b>
+						Autorizamos a Comiss&atilde;o  Organizadora do Festival "Corumba&iacute;ba CANTA E ENCANTA NO 
+						CENTEN&Agrave;RIO" a autorizacao para grava&ccedil;&atilde;o, publica&ccedil;&atilde;o e execu&ccedil;&atilde;o da obra musical, bem 
+						como repassar, automaticamente, todos os direitos de uso de imagem do evento aos 
+						organizadores do festival.
+						</b>
+						</h6>
+					</label>
+				</div>
+
+				<button class="btn btn-primary" type="submit"> Salvar</button>
+				<a type="button" class="btn btn-primary" th:href="@{/}">Voltar</a>
+			</form>
+		</form>
+	</div>
+
+
+
+
+	<div class="fixed">
+		<div th:replace="fragments :: footer"></div>
+	</div>
+
+
+</body>
+
+</html>
